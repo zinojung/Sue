@@ -1,0 +1,33 @@
+
+<div class="container">
+<br><h2 class="sub-header">고발합니다</h2>
+<p>학회비 때문에 생긴 모든 고민들을 털어놓아요
+	<a style="float: right;" href="/posts/write_post">글쓰기</a></p>
+
+<hr>
+<div class="table-pesponsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>추천수</th>
+				<th>조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @posts.reverse.each do |post| %>
+				<tr>
+					<th><%= post.id %></th>
+					<th><%= post.title %></th>
+					<th>작성자</th>
+					<th>#</th>
+					<th>#</th>
+				<tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+</div>
+</h2>
