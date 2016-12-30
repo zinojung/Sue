@@ -2,6 +2,12 @@ class PostsController < ApplicationController
 	def intro
 	end
 
+	def per_school
+	end
+
+	def contact
+	end
+
   def now_post
 		@posts = Post.all
   end

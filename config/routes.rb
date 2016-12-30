@@ -1,5 +1,8 @@
 Sue::Application.routes.draw do
 	root 'posts#intro'
+	get "posts/intro"
+	get "posts/per_school"
+	get "posts/contact"
 	get "posts/now_post"
   get "posts/after_post"
   get "posts/show/:id" => 'posts#show'
