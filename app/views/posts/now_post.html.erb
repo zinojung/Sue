@@ -20,7 +20,7 @@
 			<% @posts.reverse.each do |post| %>
 				<tr>
 					<th><%= post.id %></th>
-					<th><%= post.title %></th>
+					<th><a href="/posts/show/<%= post.id %>"><%= post.title %></a></th>
 					<th>작성자</th>
 					<th>#</th>
 					<th>#</th>

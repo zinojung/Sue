@@ -1,7 +1,7 @@
 <div class="container">
 <br><h2 class="sub-header">이렇게 해결했어요</h2>
 <p>학회비 문제를 해결한 경험을 공유해 주세요.<p>
-	<a style="float: right;" href="/posts/write_post">글쓰기</a></p>
+	<a style="float: right;" href="/posts/write_post/after">글쓰기</a></p>
 
 <hr>
 <div class="table-pesponsive">
@@ -19,7 +19,7 @@
 			<% @posts.reverse.each do |post| %>
 				<tr>
 					<th><%= post.id %></th>
-					<th><%= post.title %></th>
+					<th><a href="/posts/after_show/<%= post.id %>"><%= post.title %></a></th>
 					<th>작성자</th>
 					<th>#</th>
 					<th>#</th>

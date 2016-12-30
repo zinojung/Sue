@@ -2,7 +2,8 @@ Sue::Application.routes.draw do
 	root 'posts#intro'
 	get "posts/now_post"
   get "posts/after_post"
-  get "posts/show"
+  get "posts/show/:id" => 'posts#show'
+	get "posts/after_show/:id" => 'posts#after_show'
   get "posts/write_complete"
   get "posts/edit"
   get "posts/edit_complete"
