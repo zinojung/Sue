@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class AfterPost < ActiveRecord::Base
 	belongs_to :user
 	has_many	:comments
 	validates	:title, :presence => { :message => "제목을 입력해주세요"}

@@ -1,2 +1,32 @@
-<h1>Posts#after_post</h1>
-<p>Find me in app/views/posts/after_post.html.erb</p>
+<div class="container">
+<br><h2 class="sub-header">이렇게 해결했어요</h2>
+<p>학회비 문제를 해결한 경험을 공유해 주세요.<p>
+	<a style="float: right;" href="/posts/write_post">글쓰기</a></p>
+
+<hr>
+<div class="table-pesponsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>추천수</th>
+				<th>조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @posts.reverse.each do |post| %>
+				<tr>
+					<th><%= post.id %></th>
+					<th><%= post.title %></th>
+					<th>작성자</th>
+					<th>#</th>
+					<th>#</th>
+				<tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+</div>
+</h2>

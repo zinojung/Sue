@@ -6,15 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = ["고발해요", "해결했어요"]
 
-categories.each do |category|
-	0.upto(1) do |i|
+	0.upto(5) do |i|
 		p = Post.new
 		p.user_id = i + 1
-		p.category = category
-		p.title = "#{category} 우리학교 #{i} 제목"
-		p.content = "#{category} 우리학교 #{i} 설명"
+		p.title = "우리학교 #{i} 제목"
+		p.content = "우리학교 #{i} 설명"
 		p.save
+
+		y = AfterPost.new
+		y.user_id = i + 1
+		y.title = "이렇게 해결했어요 #{i}"
+		y.content = "저는요 #{i}"
+		y.save
 	end
 end

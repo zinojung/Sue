@@ -1,9 +1,21 @@
+<!-- for invisible space -->
+<br><br><br>
+
+<h4><%= flash[:alert] %></h4>
+
 <div class="container">
-<form action="/posts/wirte_post_complete" method="post">
-	title<br>
-	<input type="text" name="title">
-	content
-	<textarea name="content"></textarea>
-	<input type="submit" value="write">
-</form>
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+	<div class="input-group input-group-lg">
+		<form action="/posts/write_post_complete" method="post">
+				<input type="hidden" name="category" value="<%= @category %>">
+				<input type="text" name="title" class="form-control" placeholder="제목을 입력하세요" style="width: 150%;"><br><br>
+			<textarea name="content" placeholder="내용을 입력하세요" class="form-control" style="width: 150%; height: 300%;"></textarea>
+		<input type="submit" value="write">
+		</form>
+	</div>
+	</div>
+	<div class="col-md-2">
+	</div>
 </div>

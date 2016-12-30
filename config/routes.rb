@@ -1,16 +1,15 @@
 Sue::Application.routes.draw do
 	root 'posts#intro'
-  get "posts/now_post"
+	get "posts/now_post"
   get "posts/after_post"
   get "posts/show"
-  get "posts/write"
   get "posts/write_complete"
   get "posts/edit"
   get "posts/edit_complete"
   get "posts/delete_complete"
-	get "posts/write_post"
+	get "posts/write_post/:category" => 'posts#write_post'
 	post "posts/write_post_complete"
-  # The priority is based upon order of creation: first created -> highest priority.
+
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
