@@ -89,6 +89,33 @@ class PostsController < ApplicationController
 		end
 	end
 
-  def delete_complete
+  def now_post_delete
+		@post = Post.find(params[:id])
   end
+
+	def now_post_delete_complete
+		post = Post.find(params[:post_id])
+		if post.user.nickname == params[:nickname]
+			post.destroy
+			redirect_to "/posts/now_post"
+		else 
+			flash[:alert] = "닉네임이 맞지않습니다"
+			redirect_to :back
+		end
+	end
+
+	def after_post_delete
+		@post = AfterPost.find(params[:id])
+  end
+
+	def after_post_delete_complete
+		post = AfterPost.find(params[:post_id])
+		if post.user.nickname == params[:nickname]
+			post.destroy
+			redirect_to "/posts/after_post"
+		else 
+			flash[:alert] = "닉네임이 맞지않습니다"
+			redirect_to :back
+		end
+	end
 end

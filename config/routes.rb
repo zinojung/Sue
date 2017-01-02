@@ -19,6 +19,10 @@ Sue::Application.routes.draw do
 	get "posts/after_post_edit/:id" => 'posts#after_post_edit'
   post "posts/now_post_edit_complete"
 	post "posts/after_post_edit_complete"
+	get "posts/now_post_delete/:id" => 'posts#now_post_delete'
+	get "posts/after_post_delete/:id" => 'posts#after_post_delete'
+	post "posts/now_post_delete_complete"
+	post "posts/after_post_delete_complete"
   get "posts/delete_complete"
 	get "posts/write_post/:category" => 'posts#write_post'
 	post "posts/write_post_complete"

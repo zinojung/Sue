@@ -1,0 +1,9 @@
+<div class="container">
+		<h3><%= flash[:alert] %></h3>
+	<form action="/posts/after_post_delete_complete" method="POST">
+		<input type="hidden" name="post_id" value="<%= @post.id %>">
+		<label for="nickname">삭제하시려면 닉네임을 입력하세요</label>
+		<br><input type="text" name="nickname" id="nickname">
+		<input type="submit" value="확인">
+	</form>
+</div>
