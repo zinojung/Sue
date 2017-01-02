@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+	before_action :login_check
+	skip_before_action	:login_check, :only => [:intro, :per_school, :now_post, :after_post, :show, :after_show]
+
 	def intro
 	end
 
@@ -16,7 +19,7 @@ class PostsController < ApplicationController
 		@posts = AfterPost.all
   end
 
-  def show
+  def now_show
 		@posts = Post.find(params[:id])
   end
 
@@ -31,6 +34,7 @@ class PostsController < ApplicationController
   def write_post_complete
 		if params[:category] == "now"
 			p = Post.new
+			p.user_id = session[:user_id]
 			p.title = params[:title]
 			p.content = params[:content]
 			if p.save
@@ -42,6 +46,7 @@ class PostsController < ApplicationController
 		else 
 			p = AfterPost.new
 			p.title = params[:title]
+			p.user_id = session[:user_id]
 			p.content = params[:content]
 			if p.save
 				redirect_to "/posts/after_post"
@@ -52,11 +57,37 @@ class PostsController < ApplicationController
 		end
   end
 
-  def edit
+  def now_post_edit
+		@post = Post.find(params[:id])
   end
 
-  def edit_complete
+	def after_post_edit
+		@post = AfterPost.find(params[:id])
+	end
+
+  def now_post_edit_complete
+		post = Post.find(params[:post_id])
+		post.title = params[:title]
+		post.content = params[:content]
+		if !post.save
+			flash[:alert] = post.errors[:content][0]
+			redirect_to :back
+		else
+			redirect_to	:action => "show", :id => post.id 
+		end
   end
+
+	def after_post_edit_complete
+		post = AfterPost.find(params[:post_id])
+		post.title = params[:title]
+		post.content = params[:content]
+		if !post.save
+			flash[:alert] = post.errors[:content][0] 
+			redirect_to :back
+		else
+			redirect_to :action => "after_show", :id => post.id 
+		end
+	end
 
   def delete_complete
   end

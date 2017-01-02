@@ -1,15 +1,24 @@
 Sue::Application.routes.draw do
+  get "user/sign_up"
+  post "user/sign_up_complete"
+  get "user/log_in"
+  post "user/log_in_complete"
+	get "user/log_out_complete"
+
 	root 'posts#intro'
+
 	get "posts/intro"
 	get "posts/per_school"
 	get "posts/contact"
 	get "posts/now_post"
   get "posts/after_post"
-  get "posts/show/:id" => 'posts#show'
+  get "posts/now_show/:id" => 'posts#now_show'
 	get "posts/after_show/:id" => 'posts#after_show'
   get "posts/write_complete"
-  get "posts/edit"
-  get "posts/edit_complete"
+  get "posts/now_post_edit/:id" => 'posts#now_post_edit'
+	get "posts/after_post_edit/:id" => 'posts#after_post_edit'
+  post "posts/now_post_edit_complete"
+	post "posts/after_post_edit_complete"
   get "posts/delete_complete"
 	get "posts/write_post/:category" => 'posts#write_post'
 	post "posts/write_post_complete"

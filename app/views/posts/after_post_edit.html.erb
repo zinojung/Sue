@@ -1,0 +1,9 @@
+<div class="container">
+	<%= flash[:alert] %>
+	<form action="/posts/after_post_edit_complete" method="post">
+		<input type="hidden" name="post_id" value="<%= @post.id %>">
+		<input type="text" name="title" value="<%= @post.title %>">
+		<textarea name="content"><%= @post.content %></textarea>
+		<input type="submit" value="수정">
+	</form>
+</div>

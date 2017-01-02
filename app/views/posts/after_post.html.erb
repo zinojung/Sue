@@ -20,7 +20,7 @@
 				<tr>
 					<th><%= post.id %></th>
 					<th><a href="/posts/after_show/<%= post.id %>"><%= post.title %></a></th>
-					<th>작성자</th>
+					<th><%= post.user.nickname %></th>
 					<th>#</th>
 					<th>#</th>
 				<tr>

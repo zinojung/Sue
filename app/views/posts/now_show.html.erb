@@ -1,8 +1,10 @@
+<br><br><br>
+
 <div class="container">
 	<h2><%= @posts.title %></h2>
 	<p><%= @posts.content %></p>
 	<br>
 	<% if session[:user_id] == @posts.user_id %>
-		<a href="/posts/after_post_edit/<%= @posts.id %>">수정</a>
+		<a href="/posts/now_post_edit/<%= @posts.id %>">수정</a> 
 	<% end %>
 </div>

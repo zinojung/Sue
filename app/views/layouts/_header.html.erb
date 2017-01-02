@@ -1,5 +1,4 @@
 <div>
-<h4><a href="/">우리 학교 학회비를 고발합니다</a> || <a href="/posts/intro">소개></a> || <a href="#">학교별 학회비</a> || <a href="/posts/now_post">고발해요</a> || <a href="/posts/after_post">이렇게 해결했어요</a>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -20,9 +19,14 @@
             <li><a href="/posts/contact">Contact</a></li>
           </ul>
 					<ul class="nav navbar-nav navbar-right">
-					  <li><a href="#">Sign Up</a></li>
-					  <li><a href="#">Login</a></li>
+					<% if session[:user_id].nil? %>
+					  <li><a href="/user/sign_up">Sign Up</a></li>
+					  <li><a href="/user/log_in">Login</a></li>
+					<% else %>
+						<li><a href="/user/log_out_complete">Log Out</a></li>
+					<% end %>
 					</ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+<br><br>
