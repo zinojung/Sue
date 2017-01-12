@@ -27,7 +27,7 @@ class UserController < ApplicationController
 		user = User.where(email: params[:email])[0]
 		if user.nil?
 			flash[:alert] = "이메일이나 비밀번호가 맞지 않습니다."
-			redirec_to :back
+			redirect_to :back
 		elsif user.password != params[:password]
 				flash[:alert] = "이메일이나 비밀번호가 맞지 않습니다."
 				redirect_to :back

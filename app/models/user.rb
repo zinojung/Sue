@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many	:posts
-	has_many	:comments
+	has_many	:now_comments
+	has_many 	:after_comments
 	validates	:nickname, :presence	=> { :message => "별명을 입력하세요" }
 	validates	:nickname, :uniqueness => { :message => "이미 존재하는 별명입니다"}
 	validates	:password, :presence => { :message => "비밀번호를 입력하세요"}

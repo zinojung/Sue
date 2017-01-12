@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	before_action :login_check
-	skip_before_action	:login_check, :only => [:intro, :per_school, :now_post, :after_post, :show, :after_show]
+	skip_before_action	:login_check, :only => [:intro, :per_school, :now_post, :after_post, :now_show, :after_show]
 
 	def intro
 	end
@@ -21,10 +21,14 @@ class PostsController < ApplicationController
 
   def now_show
 		@posts = Post.find(params[:id])
+		@comment_writer = User.where(id: session[:user_id])[0]
+		@comments = NowComment.all
   end
 
 	def after_show
 		@posts = AfterPost.find(params[:id])
+		@comment_writer = User.where(id: session[:user_id])[0]
+		@comments = AfterComment.all
 	end
 
   def write_post
@@ -115,6 +119,30 @@ class PostsController < ApplicationController
 			redirect_to "/posts/after_post"
 		else 
 			flash[:alert] = "닉네임이 맞지않습니다"
+			redirect_to :back
+		end
+	end
+
+	def now_comment_complete
+		comment = NowComment.new
+		comment.user_id = session[:user_id]
+		comment.post_id = params[:post_id]
+		comment.content = params[:comment]
+		if !comment.save
+			redirect_to :back
+		else 
+			redirect_to :back
+		end
+	end
+
+	def after_comment_complete
+		comment = AfterComment.new
+		comment.user_id = session[:user_id]
+		comment.post_id = params[:post_id]
+		comment.content = params[:comment]
+		if !comment.save
+			redirect_to :back
+		else
 			redirect_to :back
 		end
 	end

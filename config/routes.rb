@@ -26,6 +26,8 @@ Sue::Application.routes.draw do
   get "posts/delete_complete"
 	get "posts/write_post/:category" => 'posts#write_post'
 	post "posts/write_post_complete"
+	post "posts/now_comment_complete"
+	post "posts/after_comment_complete"
 
   # See how all your routes lay out with "rake routes".
 
